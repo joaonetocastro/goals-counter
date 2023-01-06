@@ -7,19 +7,20 @@ import { CounterModel } from "../models/Counter.model"
 export const AddCounter: FC = () => {
     const [name, setName] = useState('')
     const [goal, setGoal] = useState(0)
-    const { counters, setCounters } = useCounters()
+    const { counters, setCounters, fetchCounters } = useCounters()
 
-    const addCounter = () => {
-        fetch(`/api/counter`, { method: 'POST', body: JSON.stringify({
+    const addCounter = async () => {
+        await fetch(`/api/counter`, { method: 'POST', body: JSON.stringify({
             name,
             counter: 0,
             goal
-        }) }).catch(console.error)
+        })}).catch(console.error)
         setCounters([...counters])
     }
 
-    const onSubmit = () => {
-        addCounter()
+    const onSubmit = async () => {
+        await addCounter()
+        fetchCounters()
         setName('')
         setGoal(0)
     }
