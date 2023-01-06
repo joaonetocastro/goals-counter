@@ -1,4 +1,4 @@
-import { AddIcon, CheckIcon, EditIcon, MinusIcon } from "@chakra-ui/icons"
+import { AddIcon, CheckIcon, DeleteIcon, EditIcon, MinusIcon } from "@chakra-ui/icons"
 import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Flex, Heading, HStack, Input, Text } from "@chakra-ui/react"
 import { FC, useState } from "react"
 import { useCounters } from "../hooks/useCounters.hook"
