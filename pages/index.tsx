@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import { Counters } from '../shared/components/Counters'
+import { Text } from '@chakra-ui/react'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Text fontSize="6xl">Goals:</Text>
         <Counters />
       </main>
     </>

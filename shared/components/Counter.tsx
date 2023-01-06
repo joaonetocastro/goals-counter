@@ -22,10 +22,10 @@ export const Counter: FC<{counter: CounterModel}> = ({counter}) => {
         setEditing(false)
     }
     return (
-        <Card w='md'>
+        <Card w='md' backgroundColor="blackAlpha.900" color="whiteAlpha.900">
             <CardBody>
                 {!editing && <>
-                    <Flex mt='6' alignItems="center" justifyContent="space-between">
+                    <Flex alignItems="center" justifyContent="space-between">
                             <HStack spacing='3'  >
                                 <Heading size='md'>{counter.name}:</Heading>
                                 <Text fontSize='xl'>
@@ -46,9 +46,9 @@ export const Counter: FC<{counter: CounterModel}> = ({counter}) => {
                     </Flex>
                 </>}
                 {editing && <>
-                    <Flex mt='6' alignItems="center" justifyContent="space-between">
+                    <Flex alignItems="center" justifyContent="space-between">
                             <HStack spacing='3'  >
-                                <Input value={counterName} onChange={e => setCounterName(e.target.value)}/>
+                                <Input backgroundColor="whiteAlpha.900" color="blackAlpha.900" value={counterName} onChange={e => setCounterName(e.target.value)}/>
                             </HStack>
                         <ButtonGroup spacing='2'>
                             <Button variant='outline' colorScheme='green' onClick={onFinishEditing}>
