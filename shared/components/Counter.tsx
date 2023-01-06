@@ -7,6 +7,7 @@ import { CounterModel } from "../models/Counter.model"
 export const Counter: FC<{counter: CounterModel}> = ({counter}) => {
     const [editing, setEditing] = useState(false)
     const [counterName, setCounterName] = useState(counter.name)
+    const [counterGoal, setCounterGoal] = useState(counter.goal)
     const { counters, setCounters } = useCounters()
 
     const updateCounter = (counter: CounterModel) => {
@@ -18,7 +19,7 @@ export const Counter: FC<{counter: CounterModel}> = ({counter}) => {
     const onAdd = () => updateCounter({...counter, counter: counter.counter + 1})
     const onStartEditing = () => setEditing(true)
     const onFinishEditing = () => {
-        updateCounter({...counter, name: counterName})
+        updateCounter({...counter, name: counterName, goal: counterGoal})
         setEditing(false)
     }
     return (
@@ -49,12 +50,11 @@ export const Counter: FC<{counter: CounterModel}> = ({counter}) => {
                     <Flex alignItems="center" justifyContent="space-between">
                             <HStack spacing='3'  >
                                 <Input backgroundColor="whiteAlpha.900" color="blackAlpha.900" value={counterName} onChange={e => setCounterName(e.target.value)}/>
+                                <Input backgroundColor="whiteAlpha.900" color="blackAlpha.900" value={counterGoal} onChange={e => setCounterGoal(parseFloat(e.target.value))}/>
+                                <Button variant='outline' colorScheme='green' onClick={onFinishEditing}>
+                                    <CheckIcon boxSize={3}/>
+                                </Button>
                             </HStack>
-                        <ButtonGroup spacing='2'>
-                            <Button variant='outline' colorScheme='green' onClick={onFinishEditing}>
-                                <CheckIcon boxSize={3}/>
-                            </Button>
-                        </ButtonGroup>
                     </Flex>
                 </>}
             </CardBody>
