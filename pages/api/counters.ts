@@ -22,9 +22,8 @@ export default async function handler(
             q.Lambda(x => q.Get(x))
             ),
     )
-
     const counters: CounterModel[] = response.data.map((counter: any) => ({
-        id: counter.data.id,
+        id: counter.ref.id,
         name: counter.data.name,
         counter: counter.data.counter,
         goal: counter.data.goal,
