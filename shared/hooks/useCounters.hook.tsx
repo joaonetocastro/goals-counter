@@ -13,7 +13,7 @@ export const CountersProvider: React.FC<{children?: ReactNode[] | ReactNode}> = 
 
     useEffect(() => {
         async function fetchCounters() {
-            const response = await fetch('http://localhost:3000/api/counters')
+            const response = await fetch('/api/counters')
             setCounters(await response.json() as CounterModel[])
         }
 
